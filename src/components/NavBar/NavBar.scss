@@ -8,3 +8,18 @@ nav {
         margin: 0;
     }
 }
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+  
+.nav-link:hover {
+    color: purple;
+}
+  
+.nav-link.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+  
