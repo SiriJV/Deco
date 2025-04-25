@@ -1,6 +1,6 @@
 const Explore = () => {
     return (
-        <h1>Hello this is Explore</h1>
+        <h1>Explore</h1>
     )
 }
 
