@@ -1,0 +1,17 @@
+.searchbar-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .searchbar-input {
+    width: 100%;
+    max-width: 400px;
+    font-size: 1rem;
+    border: 1px solid pink;
+  
+    &:focus {
+      border-color: red;
+      outline: none;
+    }
+  }
+  
