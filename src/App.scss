@@ -3,6 +3,8 @@
   height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .temporary-bookcard-wrapper {
@@ -18,4 +20,18 @@
 .temporary-title {
   color: #F9EFF2;
   margin: 0;
+}
+
+// main {
+//   background-color: pink;
+//   h1 {
+//     padding: 0;
+//   }
+// }
+
+main {
+  background-color: pink;
+  display: flex;
+  // flex: 1;
+  height: 100%;
 }

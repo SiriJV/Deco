@@ -1,21 +1,88 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.scss'
-import NavBar from './components/NavBar/NavBar'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
 import MyBooks from './pages/MyBooks'
 import Profile from './pages/Profile'
-import BookCard from './components/BookCard/BookCard'
-import FilterButton from './components/FilterButton/FilterButton'
-import SearchBar from './components/SearchBar/SearchBar'
-import Rating from './components/BookModal/Rating/Rating'
+import RootLayout from './layouts/RootLayout';
+import BookModal from './components/BookModal/BookModal'
 
-function App() {
-  return (
-    <>
-    <BrowserRouter>
-      <NavBar />
-      <section className="temporary-search-wrapper">
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Home />},
+      {
+        path: 'mybooks',
+        element: <MyBooks />,
+      },
+      {
+        path: 'explore',
+        element: <Explore />,
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+        children: [
+          {
+            path: ':bookid',
+            element: <BookModal />,
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// function App() {
+//   return (
+//     <>
+//     <BrowserRouter>
+//       <NavBar />
+//       <main>
+//       <Routes>
+//         <Route path="/" element={<Navigate to="/home" replace />} />
+//         <Route path="/home" element={<Home />} />
+//         <Route path="/explore" element={<Explore />} />
+//         <Route path="/mybooks" element={<MyBooks />} />
+//         <Route path="/profile" element={<Profile />} />
+//       </Routes>
+//       </main>
+//     </BrowserRouter>
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <section className="temporary-search-wrapper">
         <SearchBar />
         <FilterButton />
       </section>
@@ -47,17 +114,4 @@ function App() {
         author="Mona Awad"
       />
       </section>
-        <Rating />
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/mybooks" element={<MyBooks />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-    </BrowserRouter>
-    </>
-  )
-}
-
-export default App
+        <Rating /> */}

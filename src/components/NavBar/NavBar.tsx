@@ -6,7 +6,7 @@ const NavBar = () => {
         <nav>
             <a>Decoshelf</a>
             <div className="navlink-wrapper">
-            <NavLink to="/home" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>Home</NavLink>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>Home</NavLink>
             <NavLink to="/explore" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>Explore</NavLink>
             <NavLink to="/mybooks" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>My books</NavLink>
             <NavLink to="/profile" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>Profile</NavLink>
