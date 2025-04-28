@@ -1,12 +1,15 @@
 :root {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-family:Georgia, 'Times New Roman', Times, serif;
+  // font-family: cousine-regular;
 
   line-height: 1.5;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #141414;
+  background-color: #191A23;
+  background-color: black;
+  // background-color: #F9EFF2;
 }
 
 body {
@@ -14,4 +17,16 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+}
+
+@font-face {
+  font-family: 'cousine-regular';
+  src: local('cousine-regular'),
+       url('public/fonts/Cousine-Regular.ttf') format('woff2');
+}
+
+@font-face {
+  font-family: 'cousine-italic';
+  src: local('cousine-italic'),
+       url('public/fonts/Cousine-Italic.ttf') format('woff2');
 }

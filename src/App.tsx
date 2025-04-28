@@ -8,6 +8,7 @@ import Profile from './pages/Profile'
 import BookCard from './components/BookCard/BookCard'
 import FilterButton from './components/FilterButton/FilterButton'
 import SearchBar from './components/SearchBar/SearchBar'
+import Rating from './components/BookModal/Rating/Rating'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <SearchBar />
         <FilterButton />
       </section>
+        <h2 className="temporary-title">Developers Favs</h2>
       <section className="temporary-bookcard-wrapper">
       <BookCard
         img="public\images\fifteen_dogs.jpg"
@@ -45,6 +47,7 @@ function App() {
         author="Mona Awad"
       />
       </section>
+        <Rating />
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />

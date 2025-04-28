@@ -6,7 +6,7 @@ const SearchBar = () => {
       <input
         type="text"
         className="searchbar-input"
-        placeholder="Sök här yay..."
+        placeholder="Sök här..."
       />
     </div>
   );

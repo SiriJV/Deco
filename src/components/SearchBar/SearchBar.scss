@@ -1,17 +1,24 @@
 .searchbar-wrapper {
     display: flex;
     justify-content: center;
+    margin: 10px;
   }
   
   .searchbar-input {
     width: 100%;
     max-width: 400px;
-    font-size: 1rem;
-    border: 1px solid pink;
+    border: 1px solid #1A1532;
+    border: none;
+    background-color: #e3d9dc;
+    padding: 10px;
   
     &:focus {
-      border-color: red;
+      border-color: #8BE0DA;
       outline: none;
+    }
+
+    &::placeholder {
+        color: #1A1532;
     }
   }
   

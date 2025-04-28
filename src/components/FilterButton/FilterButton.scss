@@ -1,11 +1,12 @@
 .filter-wrapper {
     .open-filter-button {
-      background-color: rgb(34, 34, 34);
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      color: white;
-      padding: 0;
+      background-color: #014FAD;
+      background-color: #167FFE;
+      background: linear-gradient(to top, #014FAD, #167FFE);
+      border: 1px solid #014FAD;
+      color: #F9EFF2;
+      padding: 10px;
+      margin: 10px;
     }
   
     .filter-modal {
@@ -13,7 +14,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: white;
+      background: rgb(34, 34, 34);
+      color: white;
       width: 90%;
       max-width: 500px;
       z-index: 1000;

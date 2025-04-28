@@ -1,25 +1,44 @@
 nav {
-    background-color: rgb(34, 34, 34);
+    // background: linear-gradient(to bottom, #F9EFF2, #e3d9dc);
+    background-color: black;
+    border-bottom: 1px solid #191A23;
     display: flex;
-    gap: 40px;
-    justify-content: center;
+    justify-content: space-between;
+
+    .navlink-wrapper {
+        display: flex;
+        gap: 40px;
+    }
+
+    a, p {
+        margin: 0;
+        padding: 10px;
+        color: #F9EFF2;
+    }
 
     p {
-        margin: 0;
+        // padding: 2px 8px;
+        // margin: 8px;
+        padding: 10px 20px;
+        background-color: #191A23;
+        color: #F9EFF2;
     }
 }
 
 .nav-link {
-    color: white;
+    color: #F9EFF2;
     text-decoration: none;
 }
   
-.nav-link:hover {
-    color: purple;
+.nav-link:hover, p:hover, a:hover {
+    color: #167FFE;
 }
   
 .nav-link.active {
-    color: blue;
-    border-bottom: 2px solid blue;
+    color: #014FAD;
+    border-bottom: 1px solid #014FAD;
 }
   
+@media (max-width: 600px) {
+    
+}
