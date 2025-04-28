@@ -1,0 +1,42 @@
+.rating-wrapper {
+    display: flex;
+  
+    .rating-icons, .modal-icons {
+      display: flex;
+      gap: 5px;
+  
+      .shape {
+        width: 20px;
+        height: 20px;
+        background-color: #F5F5F0;
+        // border: 1px solid #8BE0DA;
+        transition: background-color 0.2s ease;
+  
+        &.filled {
+          background-color: #8BE0DA;
+        }
+      }
+    }
+  
+    .rating-result {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      button {
+        background: none;
+        border: none;
+        color: #8BE0DA;
+        text-decoration: underline;
+      }
+    }
+  
+    .rating-modal {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        background: rgb(34, 34, 34);
+    }
+}
+  
