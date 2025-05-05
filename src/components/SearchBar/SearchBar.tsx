@@ -1,15 +1,43 @@
-import './SearchBar.scss';
+import { useState } from "react";
+import './SearchBar.scss'
+import SearchCategory from "../SearchCategory/SearchCategory";
 
-const SearchBar = () => {
-  return (
-    <div className="searchbar-wrapper">
-      <input
-        type="text"
-        className="searchbar-input"
-        placeholder="Sök här..."
-      />
-    </div>
-  );
+type SearchBarProps = {
+  onSearch: (query: string, filter: string) => void;
 };
 
+function SearchBar({ onSearch }: SearchBarProps) {
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("title");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim()) {
+      onSearch(query.trim(), filter);
+    }
+  };
+
+  return (
+    <div className="search-bar">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search for books..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      {query && (
+        <SearchCategory
+          selectedFilter={filter}
+          onSelectFilter={setFilter}
+        />
+      )}
+    </div>
+  );
+}
+
 export default SearchBar;
+
