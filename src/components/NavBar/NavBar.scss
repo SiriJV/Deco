@@ -4,6 +4,9 @@ nav {
     border-bottom: 1px solid #191A23;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
     .navlink-wrapper {
         display: flex;
@@ -40,5 +43,5 @@ nav {
 }
   
 @media (max-width: 600px) {
-    
+
 }
