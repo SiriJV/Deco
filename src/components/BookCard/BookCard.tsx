@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./BookCard.scss";
+import { useShelves } from "../../context/ShelvesContext";
 
 type BookCardProps = {
   img: string;
@@ -10,15 +11,27 @@ type BookCardProps = {
 function BookCard({ img, name, author }: BookCardProps) {
   const [showPopup, setShowPopup] = useState(false);
   const [customShelf, setCustomShelf] = useState("");
+  const { addBookToShelf, addShelf } = useShelves();
 
   const handleBookmarkClick = () => {
     setShowPopup(!showPopup);
   };
 
-  const handleShelfSelect = (shelf: string) => {
+  const handleShelfSelect = (shelfName: string) => {
+    const book = { name, author, img };
+    addBookToShelf(shelfName, book);
     setShowPopup(false);
-    alert(`Added to shelf: ${shelf}`);
-    // ersätt här med logik för att faktiskt spara till shelf
+    alert(`Added to shelf: ${shelfName}`);
+  };
+  
+
+  const handleCreateShelf = () => {
+    if (customShelf.trim()) {
+      addShelf(customShelf.trim());
+      addBookToShelf(customShelf.trim(), name);
+      setCustomShelf("");
+      alert(`Added "${name}" to newly created shelf: ${customShelf}`);
+    }
   };
 
   return (
@@ -45,16 +58,7 @@ function BookCard({ img, name, author }: BookCardProps) {
               value={customShelf}
               onChange={(e) => setCustomShelf(e.target.value)}
             />
-            <button
-              onClick={() => {
-                if (customShelf.trim()) {
-                  handleShelfSelect(customShelf.trim());
-                  setCustomShelf("");
-                }
-              }}
-            >
-              Add
-            </button>
+            <button onClick={handleCreateShelf}>Add</button>
           </div>
         </div>
       )}
