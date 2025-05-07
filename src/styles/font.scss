@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../../public/fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf') format('truetype'); // fix path!
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+  
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../../public/fonts/Fraunces-Italic-VariableFont_SOFT\,WONK\,opsz\,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@mixin fraunces($weight: 400, $italic: false) {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-style: if($italic, italic, normal);
+    font-weight: $weight;
+}
+  
+.italic {
+    @include fraunces(400, true);
+}
