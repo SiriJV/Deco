@@ -1,8 +1,10 @@
+@use '../../styles/colors.scss' as *;
+@use '../../styles/font.scss' as *;
+
 .book-card {
+    @include fraunces(400);
     min-width: 200px;
     max-width: 300px;
-    background-color: rgb(34, 34, 34);
-    padding: 10px;
     border-radius: 3px;
     position: relative;
 }
@@ -11,80 +13,112 @@
     width: 100%;
     height: 100px;
     object-fit: cover;
-    // display: block;
     border-radius: 3px;
 }
   
-.book-card-info {
-    padding: 6px 0px;
-}
-  
 .book-card-name {
-    font-size: 1rem;
+    @include fraunces(400);
     margin: 0;
-    color: #F9EFF2;
+    color: $white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
   
 .book-card-author {
     margin: 0;
-    font-size: 0.9rem;
-    color: #F9EFF2;
+    color: $light-gray;
 }
   
-.bookmark-icon {
+.shelf-icon {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background: none;
-    border: none;
-    font-size: 20px;
+    top: 8px;
+    right: 8px;
     cursor: pointer;
-    color: white;
+    background-color: gray;
 }
   
 .shelf-popup {
-    position: absolute;
-    top: 50px;
-    right: 12px;
-    background: rgb(34, 34, 34);
-    padding: 10px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: $darkest-gray;
+    padding: 20px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     z-index: 100;
-    min-width: 180px;
-
-    h3 {
-        margin: 0;
-    }
+    width: 300px;
 }
   
 .shelf-popup button {
-    background: pink;
-    border: none;
     text-align: left;
-    transition: background-color 0.3s ease;
-}
-  
-.shelf-popup button:hover {
-    background-color: red;
 }
   
 .custom-shelf {
     display: flex;
+    margin-top: 10px;
+    gap: 10px;
 }
   
 .custom-shelf input {
     flex: 1;
-    border: 1px solid pink;
+    background-color: $darkest-gray;
+    border: 2px solid $dark-gray;
+    border-radius: 5px;
+    padding: 6px;
+    @include fraunces;
+    font-size: 16px;
+    color: $white;
+
+    &:focus {
+        border-color: $medium-gray;
+        outline: none;
+    }
+
+    &:hover {
+        background-color: rgb($dark-gray, 0.5);
+    }
+
+    &::placeholder {
+        color: $light-gray;
+    }
 }
   
-.custom-shelf button {
-    border: none;
-    background: pink;
+.shelf-popup-header {
+    display: flex;
+    justify-content: space-between;
 }
-  
-.custom-shelf button:hover {
-    background: red;
+
+.shelf-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-  
+
+.confirm-remove-popup {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: $darkest-gray;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+    width: 300px;
+
+    p {
+        color: $white;
+    }
+
+    .popup-buttons {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+    }
+}
