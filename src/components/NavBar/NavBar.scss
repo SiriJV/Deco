@@ -1,47 +1,47 @@
+@use '../../styles/colors.scss' as *;
+@use '../../styles/font.scss' as *;
+
 nav {
-    // background: linear-gradient(to bottom, #F9EFF2, #e3d9dc);
-    background-color: black;
+    background-color: $black;
     border-bottom: 1px solid #191A23;
     display: flex;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
+    @include fraunces(400);
 
     .navlink-wrapper {
         display: flex;
         gap: 40px;
     }
 
-    a, p {
+    a {
         margin: 0;
         padding: 10px;
-        color: #F9EFF2;
-    }
-
-    p {
-        // padding: 2px 8px;
-        // margin: 8px;
-        padding: 10px 20px;
-        background-color: #191A23;
         color: #F9EFF2;
     }
 }
 
 .nav-link {
-    color: #F9EFF2;
+    color: $light-gray;
     text-decoration: none;
 }
   
-.nav-link:hover, p:hover, a:hover {
-    color: #167FFE;
+.nav-link:hover {
+    color: $white;
 }
   
 .nav-link.active {
-    color: #014FAD;
-    border-bottom: 1px solid #014FAD;
+    color: $white;
+    border-bottom: 1px solid $white;
 }
   
 @media (max-width: 600px) {
 
+}
+
+.info-button {
+    width: 50px;
+    border-radius: 0px;
 }
