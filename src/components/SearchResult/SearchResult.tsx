@@ -26,7 +26,7 @@ function SearchResult({ books, loading }: SearchResultProps) {
     <div className="search-results">
       {books.map((book) => (
         <BookCard
-          key={book.key}
+          id={book.key}
           img={
             book.cover_i
               ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
