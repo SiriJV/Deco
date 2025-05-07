@@ -5,6 +5,7 @@ import ShelfForm from "../components/ShelfForm/ShelfForm";
 
 import './MyBooks.scss'
 import ShelfCard from "../components/ShelfCard/ShelfCard";
+import Button from "../components/Button/Button";
 
 const MyBooks = () => {
   const { shelves, removeShelf, editShelf, addShelf } = useShelves();
@@ -21,19 +22,19 @@ const MyBooks = () => {
   return (
     <article className="mybooks-page">
         <div className="main-content">
-    <button onClick={handleAddNewShelf} className="add-shelf-button">
-        Add New Shelf
-    </button>
-    <div className="shelves">
-        {shelves.map((shelf) => (
-        <ShelfCard key={shelf.name} name={shelf.name} books={shelf.books} />
-    ))}
+            <Button variant="default" onClick={handleAddNewShelf} className="add-shelf-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            </Button>
+            <div className="shelves">
+                {shelves.map((shelf) => (
+                <ShelfCard key={shelf.name} name={shelf.name} books={shelf.books} />
+                ))}
 
-    {showShelfForm && (
-        <ShelfForm onClose={() => setShowShelfForm(false)} />
-    )}
-    </div>
-    </div>
+                {showShelfForm && (
+                    <ShelfForm onClose={() => setShowShelfForm(false)} />
+                )}
+            </div>
+        </div>
     </article>
   );
 };

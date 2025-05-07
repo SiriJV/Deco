@@ -1,11 +1,20 @@
+@use '../styles/colors.scss' as *;
+@use '../styles/font.scss' as *;
+
 .mybooks-page {
     justify-items: center;
+    overflow-y: scroll;
 }
 
 .shelves {
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    .shelf {
+        background-color: $darkest-gray;
+        padding: 15px 20px;
+    }
 }
 
 .main-content {
