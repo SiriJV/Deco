@@ -1,0 +1,29 @@
+@use '../../styles/colors.scss' as *;
+@use '../../styles/font.scss' as *;
+
+.book-carousel {
+    @include fraunces(400);
+
+    .carousel-header {
+        display: flex;
+        justify-content: space-between;
+    
+        h2 {
+            margin: 0;
+            color: $white;
+            @include fraunces(400);
+        }
+    }
+
+    .scroll-area {
+        display: flex;
+        
+
+        .carousel-content {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            overflow-x: auto;
+        }
+    }
+}
