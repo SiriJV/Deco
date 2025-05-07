@@ -1,22 +1,24 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
 export type Book = {
-  name: string;
-  author: string;
-  img: string;
+    id: string;
+    name: string;
+    author: string;
+    img: string;
 };
 
 type Shelf = {
-  name: string;
-  books: Book[];
+    name: string;
+    books: Book[];
 };
 
 type ShelvesContextType = {
-  shelves: Shelf[];
-  addShelf: (name: string) => void;
-  addBookToShelf: (shelfName: string, book: Book) => void;
-  removeShelf: (name: string) => void;
-  editShelf: (oldName: string, newName: string) => void;
+    shelves: Shelf[];
+    addShelf: (name: string) => void;
+    addBookToShelf: (shelfName: string, book: Book) => void;
+    removeShelf: (name: string) => void;
+    editShelf: (oldName: string, newName: string) => void;
+    removeBookFromShelf: (shelfName: string, book: Book) => void;
 };
 
 const ShelvesContext = createContext<ShelvesContextType | undefined>(undefined);
@@ -36,7 +38,7 @@ export const ShelvesProvider = ({ children }: ShelvesProviderProps) => {
       books: [],
     },
     {
-      name: "Want to Read",
+      name: "Want to read",
       books: [],
     },
   ]);
@@ -71,8 +73,23 @@ export const ShelvesProvider = ({ children }: ShelvesProviderProps) => {
     );
   };
 
+  const removeBookFromShelf = (shelfName: string, bookToRemove: Book) => {
+    setShelves((prevShelves) =>
+      prevShelves.map((shelf) =>
+        shelf.name === shelfName
+          ? {
+              ...shelf,
+              books: shelf.books.filter(
+                (b) => b.name !== bookToRemove.name || b.author !== bookToRemove.author
+              ),
+            }
+          : shelf
+      )
+    );
+  };
+
   return (
-    <ShelvesContext.Provider value={{ shelves, addShelf, addBookToShelf, removeShelf, editShelf }}>
+    <ShelvesContext.Provider value={{ shelves, addShelf, addBookToShelf, removeShelf, editShelf, removeBookFromShelf }}>
       {children}
     </ShelvesContext.Provider>
   );
