@@ -1,0 +1,52 @@
+@use '../../styles/colors.scss' as *;
+@use '../../styles/font.scss' as *;
+
+.button {
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    @include fraunces;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+  
+    &.primary {
+        background-color: rgb($darker-primary, 0.75);
+        color: $white;
+  
+        &:hover {
+            background-color: $primary;
+        }
+    }
+  
+    &.secondary {
+        background-color: $dark-gray;
+        color: $white;
+  
+        &:hover {
+            background-color: rgb($medium-gray, 0.5);
+        }
+    }
+  
+    &.link {
+        background: none;
+        color: $light-gray;
+        padding: 0;
+        text-decoration: underline;
+    
+        &:hover {
+            color: $white;
+        }
+    }
+
+    &.default {
+        background-color: $darkest-gray;
+        color: $light-gray;
+    
+        &:hover {
+          background-color: $dark-gray;
+          color: $white;
+        }
+    }
+  }
+  
