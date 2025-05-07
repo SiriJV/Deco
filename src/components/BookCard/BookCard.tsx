@@ -21,7 +21,7 @@ function BookCard({ id, img, name, author }: BookCardProps) {
 
   const book = { id, name, author, img };
 //   const cleanId = id.replace('/works/', '');
-  console.log(id);  // Check what id actually is
+  console.log(id);
 const cleanId = id && typeof id === 'string' && id.startsWith('/works/') ? id.replace('/works/', '') : id;
 
 
