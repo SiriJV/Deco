@@ -5,6 +5,9 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     @include fraunces(400);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     h3 {
       margin: 0;
@@ -32,10 +35,39 @@ p {
 .shelf-card-header-editing {
     display: flex;
     justify-content: space-between;
+
+    .shelf-card-editing-input {
+        background-color: $dark-gray;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        color: white;
+        background-color: $dark-gray;
+        padding: 10px;
+        @include fraunces;
+        font-size: 16px;
+        border-radius: 8px;
+        height: 20px;
+    
+        &:focus {
+            border-color: #8BE0DA;
+            outline: none;
+        }
+  
+        &::placeholder {
+            color: $light-gray;
+        }
+    }
 }
 
 .shelf-card-button-wrapper {
     display: flex;
     gap: 10px;
     justify-content:end;
+}
+
+.remove-book-from-shelf-button-2 {
+    position: relative;
+    top: -118px;
+    right: -120px;
 }
