@@ -7,12 +7,11 @@ import { Book } from "../../context/ShelvesContext";
 type BookmarkIconProps = {
     className?: string;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    // onClick?: () => void;
     book: Book;
     size?: number;
 };
 
-const BookmarkIcon: React.FC<BookmarkIconProps> = ({ className = "", onClick, book, size = 24}) => {
+const BookmarkIcon = ({ className = "", onClick, book, size = 24}: BookmarkIconProps) => {
     const { shelves } = useShelves();
 
     const isBookmarked = shelves.some(shelf =>
