@@ -34,6 +34,7 @@ const MyBooks = () => {
                     <ShelfForm onClose={() => setShowShelfForm(false)} />
                 )}
             </div>
+            <div className="filler"></div>
         </div>
     </article>
   );
