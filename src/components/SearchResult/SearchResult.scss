@@ -1,0 +1,12 @@
+.search-results {
+    margin: 50px 25px;
+    display: flex;
+    // justify-content: space-betwe;
+}
+
+.loading-text {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}

@@ -6,6 +6,7 @@ type Book = {
   title: string;
   author_name?: string[];
   cover_i?: number;
+  numberOfPages?: number;
 };
 
 type SearchResultProps = {
@@ -15,11 +16,11 @@ type SearchResultProps = {
 
 function SearchResult({ books, loading }: SearchResultProps) {
   if (loading) {
-    return <div>Loading books...</div>;
+    return <p className="loading-text">Loading books...</p>;
   }
 
   if (books.length === 0) {
-    return <div>No results found.</div>;
+    return <p className="search-info">No results found.</p>;
   }
 
   return (
@@ -34,6 +35,7 @@ function SearchResult({ books, loading }: SearchResultProps) {
           }
           name={book.title}
           author={book.author_name ? book.author_name.join(", ") : "Unknown Author"}
+          numberOfPages={book.numberOfPages}
         />
       ))}
     </div>
