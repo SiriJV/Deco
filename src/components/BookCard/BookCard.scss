@@ -4,7 +4,8 @@
 .book-card {
     @include fraunces(400);
     min-width: 200px;
-    max-width: 300px;
+    // max-width: 300px;
+    width: 225px;
     border-radius: 3px;
     position: relative;
 }
