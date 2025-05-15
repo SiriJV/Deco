@@ -12,9 +12,9 @@ function BookCard({ img, name }: SmallBookCardProps) {
       <div className="small-book-card-info">
         <h3 className="small-book-card-name">{name}</h3>
       </div>
-      <button className="delete-icon">
+      {/* <button className="delete-icon">
         delete
-      </button>
+      </button> */}
     </div>
   );
 }

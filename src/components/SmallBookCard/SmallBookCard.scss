@@ -1,9 +1,10 @@
 .small-book-card {
     min-width: 100px;
     max-width: 150px;
+    width: 150px;
     border-radius: 3px;
     position: relative;
-    
+
     img {
         width: 100%;
         height: 100px;
@@ -16,6 +17,9 @@
 .small-book-card-name {
     font-size: 0.8rem;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .delete-icon {
