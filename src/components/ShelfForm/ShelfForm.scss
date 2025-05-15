@@ -1,6 +1,48 @@
-.shelf-form {
+@use '../../styles/colors.scss' as *;
+@use '../../styles/font.scss' as *;
+
+.shelf-wrapper {
     position: absolute;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+    background-color: $darkest-gray;
+    border: 2px solid $dark-gray;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.shelf-form-input {
+    background-color: $dark-gray;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    background-color: $dark-gray;
+    padding: 10px;
+    @include fraunces;
+    font-size: 16px;
+    border-radius: 8px;
+    height: 20px;
+    
+    &:focus {
+        border-color: #8BE0DA;
+        outline: none;
+    }
+  
+    &::placeholder {
+        color: $light-gray;
+    }
+}
+
+.shelf-form-button-wrapper {
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 5px;
+}
+
+.shelf-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
