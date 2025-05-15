@@ -6,6 +6,7 @@ nav {
     border-bottom: 1px solid #191A23;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -44,4 +45,11 @@ nav {
 .info-button {
     width: 50px;
     border-radius: 0px;
+}
+
+.profile-link {
+    background-color: grey;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
 }
