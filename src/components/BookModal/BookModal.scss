@@ -3,8 +3,38 @@
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    margin: 15px;
 
     .book-details {
 
     }
+}
+
+.book-cover {
+    width: 330px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .cover-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: #ccc;
+      border: 1px solid #aaa;
+    }
+}
+  
+.loading-details {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
 }
