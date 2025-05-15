@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import './SearchCategory.scss'
 
 type SearchCategoryProps = {
@@ -8,24 +9,12 @@ type SearchCategoryProps = {
 const SearchCategory = ({ selectedFilter, onSelectFilter }: SearchCategoryProps) => {
   return (
     <div className="filter-options">
-      <button
-        className={selectedFilter === "title" ? "active" : ""}
-        onClick={() => onSelectFilter("title")}
-      >
-        Title
-      </button>
-      <button
-        className={selectedFilter === "author" ? "active" : ""}
-        onClick={() => onSelectFilter("author")}
-      >
-        Author
-      </button>
-      <button
-        className={selectedFilter === "subject" ? "active" : ""}
-        onClick={() => onSelectFilter("subject")}
-      >
-        Subject
-      </button>
+        <p>Search books by:</p>
+        <div className="filter-button-wrapper">
+            <Button variant="secondary" className={selectedFilter === "title" ? "filter-button active" : "filter-button"} onClick={() => onSelectFilter("title")}>Title</Button>
+            <Button variant="secondary" className={selectedFilter === "author" ? "filter-button active" : "filter-button"} onClick={() => onSelectFilter("author")}>Author</Button>
+            <Button variant="secondary" className={selectedFilter === "subject" ? "filter-button active" : "filter-button"} onClick={() => onSelectFilter("subject")}>Subject</Button>
+        </div>
     </div>
   );
 };
