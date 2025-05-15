@@ -4,7 +4,7 @@
 .profile-page {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     padding: 0px 400px;
     overflow-y: scroll;
     height: 100%;
@@ -17,6 +17,7 @@
         background-color: $darkest-gray;
         padding: 20px;
         border-radius: 5px;
+        margin-top: 15px;
 
         div {
             h3, p {
@@ -169,3 +170,10 @@
     border-radius: 5px;
     flex-shrink: 0;
   }
+
+@media (max-width: 1000px) {
+    .profile-page {
+        padding: 0px 100px;
+        
+    }
+}

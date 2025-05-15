@@ -2,22 +2,23 @@ import { useNavigate } from 'react-router-dom';
 import { useShelves } from '../context/ShelvesContext';
 import './Profile.scss'
 import Button from '../components/Button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getTotalPagesForShelf } from '../utils/getTotalPagesForShelf';
 
 const ratedBooks = [
-    { name: "The Hobbit", rating: 5 },
-    { name: "1984", rating: 4 },
-    { name: "The Hobbit", rating: 5 },
-    { name: "1984", rating: 4 },
-    { name: "The Hobbit", rating: 5 },
-    { name: "1984", rating: 4 },
+    { name: "Example 1", rating: 5 },
+    { name: "Example 2", rating: 4 },
+    { name: "Example 3", rating: 5 },
+    { name: "Example 4", rating: 4 },
+    { name: "Example 5", rating: 5 },
+    { name: "Example 6", rating: 4 },
   ];
   
   const reviewedBooks = [
-    { name: "The Catcher in the Rye", review: "A moving, introspective read." },
-    { name: "To Kill a Mockingbird", review: "Still incredibly relevant. A moving, introspective read." },
-    { name: "The Catcher in the Rye", review: "A moving, introspective read. Still incredibly relevant." },
-    { name: "To Kill a Mockingbird", review: "Still incredibly relevant." },
+    { name: "Example 1", review: "A moving, introspective read." },
+    { name: "Example 2", review: "Still incredibly relevant. A moving, introspective read." },
+    { name: "Example 3", review: "A moving, introspective read. Still incredibly relevant." },
+    { name: "Example 4", review: "Still incredibly relevant." },
   ];
   
 
@@ -25,6 +26,28 @@ const Profile= () => {
     const { shelves } = useShelves();
     const [editing, setEditing] = useState(false);
     const navigate = useNavigate();
+    const readShelf = shelves.find(shelf => shelf.name === "Read");
+    const readCount = readShelf ? readShelf.books.length : 0;
+    const [totalPages, setTotalPages] = useState<number | null>(null);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        async function calculateTotalPages() {
+          setLoading(true);
+          const readShelf = shelves.find(shelf => shelf.name === "Read");
+          if (!readShelf || readShelf.books.length === 0) {
+            setTotalPages(0);
+            setLoading(false);
+            return;
+          }
+    
+          const total = await getTotalPagesForShelf(readShelf.books);
+          setTotalPages(total);
+          setLoading(false);
+        }
+    
+        calculateTotalPages();
+      }, [shelves]);
     
     const handleSeeAllShelves = () => {
       navigate("/mybooks");
@@ -47,8 +70,8 @@ const Profile= () => {
             <section className="statistics">
                 <h2>Statistics</h2>
                 <div className="stats">
-                    <div><span>567</span>pages read</div>
-                    <div><span>50</span>books read</div>
+                    <div><span>{loading ? "Loading..." : totalPages ?? 0}</span>pages read</div>
+                    <div><span>{readCount}</span>books read</div>
                     <div><span>4</span>genres read</div>
                 </div>
             </section>
