@@ -1,9 +1,13 @@
+@use '../../../styles/colors.scss' as *;
+
 .rating-wrapper {
     display: flex;
   
     .rating-icons, .modal-icons {
       display: flex;
       gap: 5px;
+      margin: 10px 0px;
+      margin-right: 10px;
   
       .shape {
         width: 20px;
@@ -13,7 +17,7 @@
         transition: background-color 0.2s ease;
   
         &.filled {
-          background-color: #8BE0DA;
+          background-color: yellow;
         }
       }
     }
@@ -24,10 +28,10 @@
       gap: 5px;
 
       button {
-        background: none;
-        border: none;
-        color: #8BE0DA;
-        text-decoration: underline;
+    //     background: none;
+    //     border: none;
+        color: $pink;
+    //     text-decoration: underline;
       }
     }
   
@@ -36,7 +40,10 @@
         top: 50%;
         right: 50%;
         transform: translate(50%, -50%);
-        background: rgb(34, 34, 34);
+        background-color: $darkest-gray;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid $dark-gray;
     }
 }
   
