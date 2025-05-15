@@ -1,3 +1,21 @@
+@use '../styles/colors.scss' as *;
+
 .home-page {
     overflow-y: scroll;
+}
+
+.search-filler {
+    width: 100%;
+    height: 75px;
+}
+
+.search-info {
+    color: $light-gray;
+    margin-left: 25px;
+}
+
+.book-carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
