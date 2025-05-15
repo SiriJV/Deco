@@ -1,11 +1,11 @@
 import { useState } from "react";
-import BookCard from "../components/BookCard/BookCard";
-import { useShelves } from "../context/ShelvesContext";
-import ShelfForm from "../components/ShelfForm/ShelfForm";
+import BookCard from "../../components/BookCard/BookCard";
+import { useShelves } from "../../context/ShelvesContext";
+import ShelfForm from "../../components/ShelfForm/ShelfForm";
 
 import './MyBooks.scss'
-import ShelfCard from "../components/ShelfCard/ShelfCard";
-import Button from "../components/Button/Button";
+import ShelfCard from "../../components/ShelfCard/ShelfCard";
+import Button from "../../components/Button/Button";
 
 const MyBooks = () => {
   const { shelves, removeShelf, editShelf, addShelf } = useShelves();

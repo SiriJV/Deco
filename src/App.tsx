@@ -1,15 +1,14 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.scss';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 // import Explore from './pages/Explore';
-import MyBooks from './pages/MyBooks';
-import Profile from './pages/Profile';
+import MyBooks from './pages/MyBooks/MyBooks';
+import Profile from './pages/Profile/Profile';
 import RootLayout from './layouts/RootLayout';
 import { ShelvesProvider } from './context/ShelvesContext';
 import BookModal from './components/BookModal/BookModal';
-import Ratings from './pages/Ratings';
+import Ratings from './pages/Ratings/Ratings';
 import { RatingProvider } from './context/RatingsContext';
-import { StatisticsProvider } from './context/StatisticsContext';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Home /> // renders the search
+            element: <Home />
           },
           {
             path: ':bookId',

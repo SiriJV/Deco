@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { useShelves } from '../context/ShelvesContext';
+import { useShelves } from '../../context/ShelvesContext';
 import './Profile.scss'
-import Button from '../components/Button/Button';
+import Button from '../../components/Button/Button';
 import { useEffect, useState } from 'react';
-import { getTotalPagesForShelf } from '../utils/getTotalPagesForShelf';
+import { getTotalPagesForShelf } from '../../utils/getTotalPagesForShelf';
 
 const ratedBooks = [
     { name: "Example 1", rating: 5 },

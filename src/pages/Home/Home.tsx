@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import SearchBar from "../components/SearchBar/SearchBar"
-import SearchResult from "../components/SearchResult/SearchResult";
+import SearchBar from "../../components/SearchBar/SearchBar"
+import SearchResult from "../../components/SearchResult/SearchResult";
 import { Outlet, useSearchParams } from "react-router-dom";
 import './Home.scss'
-import BookCarousel from "../components/BookCarousel/BookCarousel";
-import { favouriteBooks } from "../data/genreBooks";
-import { scienceFictionBooks } from "../data/genreBooks";
+import BookCarousel from "../../components/BookCarousel/BookCarousel";
+import { favouriteBooks } from "../../data/genreBooks";
+import { scienceFictionBooks } from "../../data/genreBooks";
 
 const Home = () => {
     const [books, setBooks] = useState([]);

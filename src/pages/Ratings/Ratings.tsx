@@ -1,4 +1,4 @@
-import { useRatingContext } from '../context/RatingsContext';
+import { useRatingContext } from '../../context/RatingsContext';
 import './Ratings.scss';
 
 const Ratings = () => {

@@ -4,7 +4,7 @@ import { useShelves } from "../../context/ShelvesContext";
 import BookmarkIcon from "../BookmarkIcon/BookmarkIcon";
 import Button from "../Button/Button";
 import { useNavigate } from 'react-router-dom';
-import { fetchPageCount } from "../../pages/Ratings"; 
+import { fetchPageCount } from "../../pages/Ratings/Ratings"; 
 
 type BookCardProps = {
     id: string;
