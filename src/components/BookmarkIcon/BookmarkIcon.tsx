@@ -6,7 +6,8 @@ import { Book } from "../../context/ShelvesContext";
 
 type BookmarkIconProps = {
     className?: string;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    // onClick?: () => void;
     book: Book;
     size?: number;
 };
@@ -18,9 +19,10 @@ const BookmarkIcon: React.FC<BookmarkIconProps> = ({ className = "", onClick, bo
       shelf.books.some(b => b.name === book.name && b.author === book.author)
     );
 
-    const handleClick = () => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
         if (onClick) {
-        onClick();
+        onClick(e);
         }
     };
 
