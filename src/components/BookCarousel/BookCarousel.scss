@@ -3,6 +3,7 @@
 
 .book-carousel {
     @include fraunces(400);
+    margin: 0px 15px;
 
     .carousel-header {
         display: flex;
