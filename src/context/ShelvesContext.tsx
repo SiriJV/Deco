@@ -81,16 +81,8 @@ export const ShelvesProvider = ({ children }: ShelvesProviderProps) => {
       );
     };
 
-    const totalPagesInShelf = (shelfName: string): number => {
-      const shelf = shelves.find((shelf) => shelf.name === shelfName);
-      if (shelf) {
-        return shelf.books.reduce((total, book) => total + (book.numberOfPages || 0), 0);
-      }
-      return 0;
-    };
-
     return (
-      <ShelvesContext.Provider value={{ shelves, addShelf, addBookToShelf, removeShelf, editShelf, removeBookFromShelf, totalPagesInShelf }}>
+      <ShelvesContext.Provider value={{ shelves, addShelf, addBookToShelf, removeShelf, editShelf, removeBookFromShelf }}>
         {children}
       </ShelvesContext.Provider>
     );
