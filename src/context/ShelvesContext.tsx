@@ -5,6 +5,7 @@ export type Book = {
     name: string;
     author: string;
     img: string;
+    numberOfPages: number;
 };
 
 type Shelf = {
@@ -28,71 +29,71 @@ type ShelvesProviderProps = {
   };
 
 export const ShelvesProvider = ({ children }: ShelvesProviderProps) => {
-  const [shelves, setShelves] = useState<Shelf[]>([
-    {
-      name: "Favorites",
-      books: [],
-    },
-    {
-      name: "Read",
-      books: [],
-    },
-    {
-      name: "Want to read",
-      books: [],
-    },
-  ]);
-
-  const addShelf = (name: string) => {
-    setShelves((prevShelves) => [
-      ...prevShelves,
-      { name, books: [] },
+    const [shelves, setShelves] = useState<Shelf[]>([
+      {
+        name: "Favorites",
+        books: [],
+      },
+      {
+        name: "Read",
+        books: [],
+      },
+      {
+        name: "Want to read",
+        books: [],
+      },
     ]);
-  };
 
-  const addBookToShelf = (shelfName: string, book: Book) => {
-    setShelves((prevShelves) => {
-      const updatedShelves = prevShelves.map((shelf) =>
-        shelf.name === shelfName
-          ? { ...shelf, books: [...shelf.books, book] }
-          : shelf
+    const addShelf = (name: string) => {
+      setShelves((prevShelves) => [
+        ...prevShelves,
+        { name, books: [] },
+      ]);
+    };
+
+    const addBookToShelf = (shelfName: string, book: Book) => {
+        setShelves((prevShelves) =>
+          prevShelves.map((shelf) =>
+            shelf.name === shelfName
+              ? { ...shelf, books: [...shelf.books, book] }
+              : shelf
+          )
+        );
+      };
+
+    const removeShelf = (name: string) => {
+      setShelves((prevShelves) => prevShelves.filter((shelf) => shelf.name !== name));
+    };
+
+    const editShelf = (oldName: string, newName: string) => {
+      setShelves((prevShelves) =>
+        prevShelves.map((shelf) =>
+          shelf.name === oldName ? { ...shelf, name: newName } : shelf
+        )
       );
-      return updatedShelves;
-    });
-  };
+    };
 
-  const removeShelf = (name: string) => {
-    setShelves((prevShelves) => prevShelves.filter((shelf) => shelf.name !== name));
-  };
+    const removeBookFromShelf = (shelfName: string, bookToRemove: Book) => {
+      setShelves((prevShelves) =>
+        prevShelves.map((shelf) =>
+          shelf.name === shelfName ? { ...shelf, books: shelf.books.filter((b) => b.name !== bookToRemove.name || b.author !== bookToRemove.author),}: shelf
+        )
+      );
+    };
 
-  const editShelf = (oldName: string, newName: string) => {
-    setShelves((prevShelves) =>
-      prevShelves.map((shelf) =>
-        shelf.name === oldName ? { ...shelf, name: newName } : shelf
-      )
+    const totalPagesInShelf = (shelfName: string): number => {
+      const shelf = shelves.find((shelf) => shelf.name === shelfName);
+      if (shelf) {
+        return shelf.books.reduce((total, book) => total + (book.numberOfPages || 0), 0);
+      }
+      return 0;
+    };
+
+    return (
+      <ShelvesContext.Provider value={{ shelves, addShelf, addBookToShelf, removeShelf, editShelf, removeBookFromShelf, totalPagesInShelf }}>
+        {children}
+      </ShelvesContext.Provider>
     );
-  };
-
-  const removeBookFromShelf = (shelfName: string, bookToRemove: Book) => {
-    setShelves((prevShelves) =>
-      prevShelves.map((shelf) =>
-        shelf.name === shelfName
-          ? {
-              ...shelf,
-              books: shelf.books.filter(
-                (b) => b.name !== bookToRemove.name || b.author !== bookToRemove.author
-              ),
-            }
-          : shelf
-      )
-    );
-  };
-
-  return (
-    <ShelvesContext.Provider value={{ shelves, addShelf, addBookToShelf, removeShelf, editShelf, removeBookFromShelf }}>
-      {children}
-    </ShelvesContext.Provider>
-  );
 };
 
 export const useShelves = () => {
