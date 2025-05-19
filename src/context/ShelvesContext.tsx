@@ -76,7 +76,7 @@ export const ShelvesProvider = ({ children }: ShelvesProviderProps) => {
     const removeBookFromShelf = (shelfName: string, bookToRemove: Book) => {
       setShelves((prevShelves) =>
         prevShelves.map((shelf) =>
-          shelf.name === shelfName ? { ...shelf, books: shelf.books.filter((b) => b.name !== bookToRemove.name || b.author !== bookToRemove.author),}: shelf
+          shelf.name === shelfName ? { ...shelf, books: shelf.books.filter((book) => book.name !== bookToRemove.name || book.author !== bookToRemove.author),} : shelf
         )
       );
     };

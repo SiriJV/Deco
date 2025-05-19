@@ -12,15 +12,14 @@ const ratedBooks = [
     { name: "Example 4", rating: 4 },
     { name: "Example 5", rating: 5 },
     { name: "Example 6", rating: 4 },
-  ];
+];
   
-  const reviewedBooks = [
+const reviewedBooks = [
     { name: "Example 1", review: "A moving, introspective read." },
     { name: "Example 2", review: "Still incredibly relevant. A moving, introspective read." },
     { name: "Example 3", review: "A moving, introspective read. Still incredibly relevant." },
     { name: "Example 4", review: "Still incredibly relevant." },
-  ];
-  
+];
 
 const Profile= () => {
     const { shelves } = useShelves();
