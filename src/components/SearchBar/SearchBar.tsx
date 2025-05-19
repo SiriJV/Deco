@@ -1,19 +1,17 @@
 import { useState } from "react";
 import './SearchBar.scss'
 import SearchCategory from "../SearchCategory/SearchCategory";
+import { useNavigate } from "react-router-dom";
 
-type SearchBarProps = {
-  onSearch: (query: string, filter: string) => void;
-};
-
-function SearchBar({ onSearch }: SearchBarProps) {
+function SearchBar() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("title");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      onSearch(query.trim(), filter);
+      navigate(`/home?query=${encodeURIComponent(query)}&filter=${filter}`);
     }
   };
 
@@ -42,4 +40,3 @@ function SearchBar({ onSearch }: SearchBarProps) {
 }
 
 export default SearchBar;
-
