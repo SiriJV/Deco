@@ -30,20 +30,6 @@ This app uses the [OpenLibrary API](https://openlibrary.org/developers/api) for 
 
 ---
 
-## Folder structure
-
-src/
-├── components/
-├── context/
-├── utils/
-├── pages/
-├── styles/
-├── layouts/
-├── data/
-└── App.tsx
-
----
-
 ## Download and run project
 
 1. Clone the repo  
